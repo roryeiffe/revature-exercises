@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Week2.Day1;
 
 /*
 # Create a caluculator app

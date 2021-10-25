@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Week2.Day1;
 
 /*
 Exercise 2# EMI Calculator:
@@ -15,6 +15,8 @@ EMI:__________
 
 
  */
+
+import com.company.Week2.Day1.Challenge1;
 
 import java.util.Scanner;
 
