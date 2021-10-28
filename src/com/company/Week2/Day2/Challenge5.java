@@ -1,4 +1,4 @@
-package com.company.Week2;
+package com.company.Week2.Day2;
 
 // Create an abstract class 'Bank' with an abstract method 'getBalance'.
 // $100, $150 and $200 are deposited in banks A, B and C respectively. 'BankA',
