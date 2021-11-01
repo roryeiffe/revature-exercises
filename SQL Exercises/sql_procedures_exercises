@@ -1,0 +1,100 @@
+Rory Eiffe
+
+I did an example based on a table that stores books. Books have an id, title, author, and year of release. In addition to the required procedures, I also have a few extra procedures (Such as getting books that come after a certain year).
+
+create table book (id integer, title char(50), author char(50), year integer);
+insert into book (id, title, author, year) values(1,'Harry Potter', 'JK', 1990);
+insert into book (id, title, author, year) values(2,'Lord of the Rings', 'JRR', 1970);
+insert into book (id, title, author, year) values(3,'It', 'Steven King', '1980');
+insert into book (id, title, author, year) values(4,'The Hunger Games', 'Suzanne Collins', 2010);
+instert into book (id, title, author year) values(5, 'Mistborn', 'Brandon Sanderson', 2007);
+
+DELIMITER //
+create procedure getAll()
+BEGIN
+	SELECT * FROM book;
+END //
+;
+
+DELIMITER //
+create procedure getById(IN idToGet integer)
+BEGIN
+	SELECT * FROM book WHERE id = idToGet;
+END //
+DELIMITER ;
+
+CALL getById(5);
+
+
+DELIMITER //
+create procedure getNew()
+BEGIN SELECT * from book where year > 2000;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+create procedure getPastYear(IN var1 INTEGER)
+BEGIN
+	SELECT * FROM book where year > var1;
+END //
+DELIMITER ;
+
+
+DELIMITER //
+create procedure getEarliest(OUT var1 int)
+BEGIN
+	SELECT min(year) into var1 FROM book where year;
+END //
+DELIMITER ;
+
+CALL getEarliest(@year);
+SELECT @year;
+
+
+DELIMITER //
+create procedure getCountAfter(INOUT var1 INTEGER)
+BEGIN
+	SELECT count(*) into var1 FROM book WHERE year > var1;
+END //
+DELIMITER ;
+
+Set @year = '1985';
+CALL getCountAfter(@year);
+SELECT @year;
+
+
+DELIMITER //
+create procedure insertBook(IN var1 integer, IN var2 char(50), IN var3 char(50), IN var4 integer)
+BEGIN
+	INSERT into book values(var1,var2,var3,var4);
+END //
+DELIMITER ;
+
+CALL insertBook(6,'Jurassic Park','Michael Crichton',1993);
+
+
+DELIMITER //
+create procedure updateYear(IN idToChange integer, IN newYear integer)
+BEGIN
+	UPDATE book set year = newYear where id = idToChange;
+END //
+DELIMITER ;
+
+CALL updateYear(1,1997);
+
+
+
+DELIMITER //
+create procedure deleteById(In idToDelete integer)
+BEGIN
+	DELETE FROM book WHERE id = idToDelete;
+END //
+DELIMITER ;
+
+CALL insertBook(7,'New Book','New title', 2021);
+CALL getAll();
+CALL deleteById(7);
+CALL getAll();
+
+
