@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+</head>
+<body>
+    <form onsubmit="handleInfo(event)">
+        Name: <input type="text" id = "name">
+        <br />
+
+        Email: <input type = "text" id = "email">
+        <br />
+
+        Password: <input type = "password" id = "password1">
+        <br />
+
+        Confirm Password: <input type = "password" id = "password2">
+        <br />
+
+        <button type = "submit">Submit</button>
+        <br />
+
+        <h1 id = "error"></h1>
+    </form>
+
+    <script>
+        function handleInfo(event) {
+            event.preventDefault();
+            // get values from inputs:
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password1 = document.getElementById("password1").value;
+            let password2 = document.getElementById("password2").value;
+
+            let errorMessage = "";
+            // check name:
+            if (name.length > 20 || name.length == 0) {
+                errorMessage += "Name must be at least 1 character and shorter than 20 characters.<br />";
+            }
+            // check email:
+            if (!checkEmail(email)) {
+                errorMessage += "Email address must have @ sign and cannot be blank.<br />";
+            }
+            // check that passwords match:
+            if(password1 != password2) {
+                errorMessage += "Passwords do not match.<br />";
+            }
+            else {
+                // check that password is valid:
+                if(!checkPassword(password1)) {
+                    errorMessage += "Password must be at least 8 characters long, contain one uppercase letter and one number.<br />";
+                }
+            }
+
+            // if no error, let the user know:
+            if(errorMessage == "") {
+                errorMessage = `Info valid! <br /> Name: ${name} <br />Email: ${email}<br />`;
+            }
+            document.getElementById("error").innerHTML = errorMessage;
+            
+        }
+
+        // make sure email has an @ sign:s
+        function checkEmail(email) {
+            for(let i = 0; i < email.length; i ++) {
+                if(email[i] == '@') {
+                    return true;
+                }S
+            }
+            return false;
+        }
+
+        // make sure password has number, capital letter, and is 8 characters or more:
+        function checkPassword(password) {
+            let numberCount = 0;
+            let capitalCount = 0;
+            for(let i = 0; i < password.length; i ++) {
+                let c = password[i];
+                if(c == c.toUpperCase()) capitalCount ++;
+                if(!isNaN(c)) numberCount ++;
+            }
+            // make sure password is at least 8 characters long and has at least one number count and at least one capital count:
+            if(password.length < 8 || numberCount == 0 || capitalCount == 0) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+
+</body>
+</html>

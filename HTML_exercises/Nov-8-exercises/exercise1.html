@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+</head>
+<body>
+    <h1 id = "target">Welcome Guest!</h1>
+    <input type="checkbox" name="" id="" onchange="changeHandler()">
+
+    <script>
+        function changeHandler() {
+            let x = document.getElementById("target");
+            // toggle the value of the text:
+            if (x.innerHTML == "Welcome Guest!"){
+                // pick a random name to display:
+                let names = ['Rory','Will','Jack','Ace'];
+                let name = names[Math.floor(Math.random()*names.length)];
+                x.innerHTML = "Welcome " + name + "!";
+            }
+            // otherwise, display the default message:
+            else{
+                x.innerHTML = "Welcome Guest!";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+</head>
+<body>
+    <input class = "input" type="text">
+    <br />
+    <input class = "input" type="text">
+    <br />
+    <button onclick = "add()">add</button>
+    <br />
+    <h1 id = "target"></h1>
+    <script>
+        function add() {
+            // get both input values:
+            let x = document.getElementsByClassName("input")[0].value;
+            let y = document.getElementsByClassName("input")[1].value;
+            // calculate the sum:
+            let sum = Number(x) + Number(y)
+            // make sure both inputs are numbers:
+            if(isNaN(sum)) {
+                document.getElementById("target").innerHTML = "Make sure inputs are numbers!";
+            }
+            // update the page to include sum:
+            else{
+                document.getElementById("target").innerHTML = "Sum: " + sum;
+            }
+
+
+        }
+    </script>
+</body>
+</html>

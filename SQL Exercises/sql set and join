@@ -1,0 +1,80 @@
+create table school1 (id integer, name char(50), email char(50));
+create table school2 (id integer, name char(50), email char(50));
+
+delete from school1;
+delete from school2;
+
+insert into school1 values(1,'Rory','r@gmail.com');
+insert into school1 values(2,'Ethan','e@gmail.com');
+insert into school1 values(3,'Will','w@gmail.com');
+insert into school1 values(4,'Jack','j@gmail.com');
+insert into school1 values(5,'Roquie','ro@gmail.com');
+insert into school1 values(6,'Sean','s@gmail.com');
+insert into school1 values(7,'Yusif','y@gmail.com');
+insert into school1 values(8,'Grace','g@gmail.com');
+
+insert into school2 values(1,'Rory','r@gmail.com');
+insert into school2 values(2,'Ethan','e@gmail.com');
+insert into school2 values(3,'Will','w@gmail.com');
+
+SELECT * from school1 UNION SELECT * FROM school2;
+SELECT * from school1 UNION ALL SELECT * FROM school2;
+
+
+create table hobby (student_id integer, hobby char(50));
+
+delete from hobby;
+insert into hobby values(1,'writing');
+insert into hobby values(2,'robotics');
+insert into hobby values(3,'coding');
+insert into hobby values(4,'basketball');
+insert into hobby values(5,'football');
+insert into hobby values(9,'art');
+
+SELECT school1.name AS 'Student Name', hobby.hobby as Hobby FROM school1 INNER JOIN hobby on school1.id = hobby.student_id;
+SELECT school1.name AS 'Student Name', hobby.hobby as Hobby FROM school1 LEFT JOIN hobby on school1.id = hobby.student_id;
+SELECT school1.name AS 'Student Name', hobby.hobby as Hobby FROM school1 RIGHT JOIN hobby on school1.id = hobby.student_id;
+
+
+create table favoriteFood(name char(50), food char(50));
+delete from favoriteFood;
+
+insert into favoriteFood values ('Rory','pizza');
+insert into favoriteFood values ('Jack','pizza');
+insert into favoriteFood values ('Will','Pasta');
+insert into favoriteFood values ('Roquie','HotSauce');
+insert into favoriteFood values ('Sean','cookies');
+insert into favoriteFood values ('Zach','Pasta');
+insert into favoriteFood values ('Grace','Cereal');
+
+SELECT f1.name FROM favoriteFood f1 JOIN favoriteFood f2 WHERE (f1.food = f2.food AND f2.name = 'Will');
+
+
+create table characters (name char(50), alive integer);
+
+insert into characters values ('Spider-Man',1);
+insert into characters values ('Iron-Man',0);
+insert into characters values ('Professor Hulk',1);
+insert into characters values ('Ant-Man',1);
+insert into characters values ('Thanos',0);
+insert into characters values ('Thor',1);
+insert into characters values ('Black Widow',0);
+insert into characters values ('Vision',0);
+
+create view aliveCharacters as select * from  characters where alive = 1;
+
+select name from aliveCharacters;
+
+
+create table marble (name char(50), marbles integer);
+
+insert into marble values('Ali',10);
+insert into marble values('Sang-Woo', 10);
+
+start transaction;
+
+update marble set marbles = marbles - 10 where name = 'Ali';
+update marble set marbles = marbles + 10 where name = 'Sang-Woo';
+
+select * from marble;
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+</head>
+<body>
+    <textarea id = "textArea" name="" id="" cols="30" rows="10" oninput="onChangeEvent()"></textarea>
+    <h1 id = "target">140</h1>
+    <script>
+        function onChangeEvent(){
+            let x = document.getElementById("target");
+            let y = document.getElementById("textArea");
+            // limit the value of the text are to 140:
+            if (y.value.length > 140) {
+                y.value = y.value.substring(0,140);
+            }
+            // set the number displayed to be how many available characters are left:
+            x.innerHTML = 140 - y.value.length;
+
+        }
+    </script>
+</body>
+</html>

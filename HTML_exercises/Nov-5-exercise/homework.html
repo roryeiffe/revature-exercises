@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        .drop {
+            border: solid 2px black;
+            width: 350px;
+            height: 300px;
+        }
+        .houseWrapper {
+            display: flex; 
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hogwarts Houses</h1>
+    <div class = "houseWrapper">
+        <div class = "house">
+            <h2>Gryffindor</h2>
+            <div class = "drop" ondragover="allowDrop(event)" ondrop="drop(event)">
+        
+            </div>
+        </div>
+        <div class = "house">
+            <h2>Hufflepuff</h2>
+            <div class = "drop" ondragover="allowDrop(event)" ondrop="drop(event)">
+        
+            </div>
+        </div>
+        <div class = "house">
+            <h2>Ravenclaw</h2>
+            <div class = "drop" ondragover="allowDrop(event)" ondrop="drop(event)">
+        
+            </div>
+        </div>
+        <div class = "house">
+            <h2>Slytherin</h2>
+            <div class = "drop" ondragover="allowDrop(event)" ondrop="drop(event)">
+        
+            </div>
+        </div>
+    </div>
+    
+    <br />
+    <hr />
+    <div class = "images" >
+        <h2>Characters</h2>
+        <img id="cedric" draggable = "true" src="images/cedric.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="cho" draggable = "true" src="images/cho.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="crabbe" draggable = "true" src="images/crabbe.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="draco" draggable = "true" src="images/draco.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="fred_and_george" draggable = "true" src="images/fred_and_george.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="goyle" draggable = "true" src="images/goyle.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="hannah" draggable = "true" src="images/hannah.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="harry" draggable = "true" src="images/harry.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="hermione" draggable = "true" src="images/hermione.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="justin" draggable = "true" src="images/justin.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="luna" draggable = "true" src="images/luna.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="padma" draggable = "true" src="images/padma.jpg" width="100" alt="" ondragstart="drag(event)"/>
+        <img id="ron" draggable = "true" src="images/ron.jpg" width="100" alt="" ondragstart="drag(event)"/>    
+    </div>
+    <script>
+        function allowDrop(event) {
+          event.preventDefault();
+        }
+  
+        function drag(event) {
+          var id = event.target.id;
+          event.dataTransfer.setData('text',id);
+        }
+  
+        function drop() {
+            var id = event.dataTransfer.getData('text');
+            event.target.appendChild(document.getElementById(id));
+        }
+      </script>
+   
+</body>
+</html>
