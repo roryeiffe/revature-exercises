@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .form {
+      width: 50%;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    tr {
+      
+    }
+  </style>
+  
+  <title>
+    Register
+  </title>
+</head>
+<body>
+  <div class = "wrapper">
+    <form class = "form" action = "/register" method = "post" id = "register">
+      <h1>Registration Form</h1>
+      <table class = "table">
+        <tr>
+          <td>Enter First Name</td>
+          <td><input type = "text" name = "first_name" placeholder="Mark"/></td>
+        </tr>
+        <tr>
+          <td>Enter Last Name</td>
+          <td><input type = "text" name = "last_name" placeholder="Smith"/></td>
+        </tr>
+        <tr>
+          <td>Enter Email</td>
+          <td><input type = "text" name = "email" placeholder="m@gmail.com"/></td>
+        </tr>
+        <tr>
+          <td>Enter Password</td>
+          <td><input type = "password" name = "password"/></td>
+        </tr>
+        <tr>
+          <td>Select Gender</td>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="non-binary" checked value = "non-binary">
+              <label class="form-check-label" for="non-binary">
+                Non-binary
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="female" value = "female">
+              <label class="form-check-label" for="female">
+                Female
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="male" value = "male">
+              <label class="form-check-label" for="male">
+                Male
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Select your Country</td>
+          <td>
+            <select class="form-select" aria-label="Default select example" name = "country">
+              <option selected>Country</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="Mexico">Mexico</option>
+              <option value="France">France</option>
+              <option value="Japan">Japan</option>
+              <option value="Greece">Greece</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Select your age</td>
+          <td>
+            <input type="range" class="form-range" min="18" max="100" step="1" value = "18" id="age" name = "age" oninput="this.nextElementSibling.value = this.value">
+            <output>18</output>
+          </td>
+        </tr>
+        <tr>
+          <td colspan = "2">
+            <button class="btn btn-primary" type = "submit" form = "register">Submit</button>
+            
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
