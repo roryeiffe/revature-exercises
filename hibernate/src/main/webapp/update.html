@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Update employee</h1>
+<form action = "update" method = "post">
+    <p>Id: <input type = "number" name = "id" placeholder="Enter id" required/> </p>
+    <p>Name: <input type = "text" name = "name" placeholder="Enter name"/></p>
+    <p>Email: <input type = "text" name = "email" placeholder="Enter email"/></p>
+    <p>Gender:
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="non-binary" name="gender" value="non-binary">
+        <label for="non-binary">Non-binary</label><br>
+    </p>
+    <p>Country: <input type = "text" name = "country" placeholder="Enter country"/></p>
+    <input id = "submitButton" onclick = "hide('submitButton')" type = "submit" value = "Save"/>
+</form>
+
+
+<script>
+        console.log("here1");
+        function hide(id) {
+        console.log("here2");
+            let x = document.getElementById(id);
+            x.style.display = "none";
+           }
+    </script>
+</body>
+</html>

@@ -39,7 +39,11 @@
       <artifactId>hibernate-core</artifactId>
       <version>5.6.1.Final</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-servlet-api</artifactId>
+      <version>9.0.16</version>
+    </dependency>
 
 
   </dependencies>

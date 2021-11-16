@@ -30,17 +30,35 @@ public class App {
         Transaction t = session.beginTransaction();
 
         // create employee object:
-        Employee employee = new Employee();
-        employee.setId(1);
-        employee.setName("Mark");
-        employee.setEmail("m@gmail.com");
+//        Employee employee = new Employee();
+//        employee.setName("Mark");
+//        employee.setEmail("m@gmail.com");
+//
+//        // save the employee
+//        session.save(employee);
+//
+//        // commit:
+//        t.commit();
+//
+//
+//        // begin the transaction for customer::
+//        t = session.beginTransaction();
+//
+//        // create employee object:
+//        Customer customer = new Customer();
+//        customer.setName("Rory");
+//        customer.setEmail("r@gmail.com");
+//
+//        // save the employee
+//        session.save(customer);
+//
+//        // commit:
+//        t.commit();
 
-        // save the employee
-        session.save(employee);
+        Employee employee = session.get(Employee.class,1);
+        System.out.println(employee.toString());
 
-        // commit:
-        t.commit();
-
+        // close the session:
         session.close();
 
     }

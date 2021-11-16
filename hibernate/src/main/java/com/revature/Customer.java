@@ -5,27 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Employee {
+public class Customer {
     // make id the primary key:
     @Id
     @GeneratedValue
     private int id;
     private String name;
     private String email;
-    private String gender;
-    private String country;
 
-    // constructors:
-    public Employee() { }
+    public Customer() {}
 
-    public Employee(String name, String email, String gender, String country) {
+    public Customer(int id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
-        this.gender = gender;
-        this.country = country;
     }
 
-    // setters and getters:
     public int getId() {
         return id;
     }
@@ -50,30 +45,12 @@ public class Employee {
         this.email = email;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
-                ", country='" + country + '\'' +
                 '}';
     }
 }
