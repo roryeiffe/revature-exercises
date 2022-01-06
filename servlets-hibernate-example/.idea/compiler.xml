@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="servlet-3" />
+        <module name="servlets-hibernate-example" />
       </profile>
     </annotationProcessing>
   </component>

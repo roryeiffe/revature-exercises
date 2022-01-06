@@ -32,6 +32,7 @@ public class DeleteServlet extends HttpServlet {
         SessionFactory factory = cfg.buildSessionFactory();
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
+
         // delete from database:
         session.delete(employee);
         t.commit();

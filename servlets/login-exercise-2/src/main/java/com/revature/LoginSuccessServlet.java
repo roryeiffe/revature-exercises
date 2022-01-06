@@ -11,6 +11,7 @@ public class LoginSuccessServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        out.print(HTML.getHead());
         out.print(HTML.getNavBar());
 
         String name = request.getParameter("user_name");
@@ -20,5 +21,6 @@ public class LoginSuccessServlet extends HttpServlet {
         cookie = new Cookie("loggedIn", "true");
         response.addCookie(cookie);
         out.print("You may now view your profile!");
+        out.print(HTML.getFoot());
     }
 }

@@ -30,15 +30,15 @@ public class App {
         Transaction t = session.beginTransaction();
 
         // create employee object:
-//        Employee employee = new Employee();
-//        employee.setName("Mark");
-//        employee.setEmail("m@gmail.com");
-//
-//        // save the employee
-//        session.save(employee);
-//
-//        // commit:
-//        t.commit();
+        Employee employee = new Employee();
+        employee.setName("Mark");
+        employee.setEmail("m@gmail.com");
+
+        // save the employee
+        session.save(employee);
+
+        // commit:
+        t.commit();
 //
 //
 //        // begin the transaction for customer::
@@ -55,7 +55,7 @@ public class App {
 //        // commit:
 //        t.commit();
 
-        Employee employee = session.get(Employee.class,1);
+        employee = session.get(Employee.class,1);
         System.out.println(employee.toString());
 
         // close the session:

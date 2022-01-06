@@ -12,6 +12,7 @@ public class LoginServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        out.print(HTML.getHead());
         out.print(HTML.getNavBar());
 
         // get username and password:
@@ -19,13 +20,16 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         if(username.equals("admin") && password.equals("123")) {
+            out.print(HTML.getFoot());
             RequestDispatcher rd = request.getRequestDispatcher("loginsuccess");
             rd.forward(request, response);
         }
         else {
             out.print("Sorry, invalid username and password");
+            out.print(HTML.getFoot());
             RequestDispatcher rd = request.getRequestDispatcher("/login.html");
             rd.include(request,response);
         }
+
     }
 }

@@ -11,6 +11,7 @@ public class ProfileServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        out.println(HTML.getHead());
         out.print(HTML.getNavBar());
 
         String name = null;
@@ -31,9 +32,11 @@ public class ProfileServlet extends HttpServlet {
 
         if(name != null && loggedIn == true) {
             out.println("Welcome, " + name);
+            out.print(HTML.getFoot());
         }
         else{
             out.println("Please login to view profile.");
+            out.print(HTML.getFoot());
         }
     }
 }

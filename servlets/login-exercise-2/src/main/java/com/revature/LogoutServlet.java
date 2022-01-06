@@ -13,6 +13,7 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         // print the nav bar:
+        out.print(HTML.getHead());
         out.print(HTML.getNavBar());
         Cookie [] cookies = request.getCookies();
         if(cookies != null) {
@@ -21,9 +22,11 @@ public class LogoutServlet extends HttpServlet {
                 if(cookie.getName().equals("loggedIn")){
                     cookie.setValue("false");
                     out.println("Logout successful!");
+                    out.print(HTML.getFoot());
                     response.addCookie(cookie);
                 }
             }
         }
+        out.print(HTML.getFoot());
     }
 }
